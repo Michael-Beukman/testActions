@@ -6,4 +6,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Integration test with MySQL 5.7
-        run:  sleep 10; mysql --host 127.0.0.1  --port 3306 -uroot -proot -e "SHOW DATABASES"
+        run: |
+          sleep 10; mysql --host 127.0.0.1  --port 3306 -uroot -proot -e "SHOW DATABASES" || echo "no mysql"
+          systemctl status mysqld  || echo "not system"
+          cat /etc/my.cnf || echo "no my.cnf"
