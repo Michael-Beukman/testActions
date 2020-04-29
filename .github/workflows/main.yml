@@ -15,4 +15,4 @@ jobs:
           mysql database: testThings
           mysql root password: root
       - name: Integration test with MySQL 5.7
-        run:  mysql --host 127.0.0.1 --port 3306 -uroot -proot -e "SHOW DATABASES"
+        run:  mysql --host localhost --port 3306 -uroot -proot -e "SHOW DATABASES"
