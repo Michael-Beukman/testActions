@@ -5,6 +5,16 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
+      - name: Start mysql
+        run: |
+            which mysql || echo "no mysql"
+            which mysqld || echo "no mysqld"
+            systemctl status mysql || echo "no status"
+            echo "[mysqld]" > /etc/my.cnf
+            echo "lower_case_table_names  = 1" >> /etc/my.cnf
+            systemctl start mysql || echo "no start"
+            systemctl status mysql || echo "no status"
+            
       - name: Integration test with MySQL 5.7
         run: |
           sleep 10; mysql --host 127.0.0.1  -uroot -proot -e "SHOW DATABASES" || echo "no mysql"
