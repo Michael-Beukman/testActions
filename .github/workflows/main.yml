@@ -18,7 +18,7 @@ jobs:
             
       - name: Integration test with MySQL 5.7
         run: |
-          sleep 10; mysql --host 127.0.0.1  -uroot -proot -e "SHOW DATABASES" || echo "no mysql"
+          sleep 10; mysql --host 127.0.0.1  -uroot -proot -e "SHOW variables" || echo "no mysql"
           systemctl status mysql  || echo "not system"
           which mysqld || echo "meep"
           cat /etc/my.cnf || echo "no my.cnf"
