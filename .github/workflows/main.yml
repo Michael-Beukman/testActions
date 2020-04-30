@@ -13,6 +13,7 @@ jobs:
             echo "[mysqld]" > my.cnf
             echo "lower_case_table_names  = 1" >> my.cnf
             sudo cp my.cnf /etc/my.cnf
+            sudo cp my.cnf /etc/mysql/my.cnf
             sudo systemctl start mysql || echo "no start"
             sudo systemctl status mysql || echo "no status"
             
