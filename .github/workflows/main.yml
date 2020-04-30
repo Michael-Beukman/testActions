@@ -10,8 +10,9 @@ jobs:
             which mysql || echo "no mysql"
             which mysqld || echo "no mysqld"
             systemctl status mysql || echo "no status"
-            echo "[mysqld]" > /etc/my.cnf
-            echo "lower_case_table_names  = 1" >> /etc/my.cnf
+            echo "[mysqld]" > my.cnf
+            echo "lower_case_table_names  = 1" >> my.cnf
+            sudo cp my.cnf /etc/my.cnf
             systemctl start mysql || echo "no start"
             systemctl status mysql || echo "no status"
             
